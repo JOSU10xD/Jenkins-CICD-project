@@ -81,7 +81,7 @@ stage("Nexus Artifact Uploader"){
           groupId: 'webapp',
           version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
           repository: 'maven-project-releases',  //"${NEXUS_REPOSITORY}",
-          credentialsId: "13.223.183.205",
+          credentialsId: "Nexus-Credential",
           artifacts: [
               [artifactId: 'webapp',
               classifier: '',
