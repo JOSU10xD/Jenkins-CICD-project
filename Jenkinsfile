@@ -59,7 +59,7 @@ pipeline {
                 mvn sonar:sonar \
                 -Dsonar.projectKey=JavaWebApp-Project \
                 -Dsonar.host.url=http://54.172.209.150:9000 \
-                -Dsonar.login=$SONAR_TOKEN
+                -Dsonar.login=ddb764585c48c6607c71f539d32377007555ab81
                 """
                 }
             }
