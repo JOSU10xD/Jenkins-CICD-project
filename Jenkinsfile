@@ -85,7 +85,7 @@ stage("Nexus Artifact Uploader"){
           artifacts: [
               [artifactId: 'webapp',
               classifier: '',
-              file: '/var/lib/jenkins/workspace/jenkins-complete-cicd-pipeline/webapp/target/webapp.war',
+              file: "${WORKSPACE}/webapp/target/webapp.war",
               type: 'war']
           ]
         )
