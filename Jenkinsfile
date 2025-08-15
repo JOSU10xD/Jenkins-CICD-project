@@ -72,25 +72,25 @@ pipeline {
           }
        }
     }
-    stage("Nexus Artifact Uploader"){
-        steps{
-           nexusArtifactUploader(
-              nexusVersion: 'nexus3',
-              protocol: 'http',
-              nexusUrl: '13.223.183.205:8081',
-              groupId: 'webapp',
-              version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
-              repository: 'maven-project-releases',  //"${NEXUS_REPOSITORY}",
-              credentialsId: "${NEXUS_CREDENTIAL_ID}",
-              artifacts: [
-                  [artifactId: 'webapp',
-                  classifier: '',
-                  file: "${WORKSPACE}/webapp/target/webapp.war",
-                  type: 'war']
-              ]
-           )
-        }
+stage("Nexus Artifact Uploader"){
+    steps{
+        nexusArtifactUploader(
+          nexusVersion: 'nexus3',
+          protocol: 'http',
+          nexusUrl: '13.223.183.205:8081',
+          groupId: 'webapp',
+          version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
+          repository: 'maven-project-releases',  //"${NEXUS_REPOSITORY}",
+          credentialsId: "13.223.183.205",
+          artifacts: [
+              [artifactId: 'webapp',
+              classifier: '',
+              file: '/var/lib/jenkins/workspace/jenkins-complete-cicd-pipeline/webapp/target/webapp.war',
+              type: 'war']
+          ]
+        )
     }
+}
     stage('Deploy to Development Env') {
         environment {
             HOSTS = 'dev'
